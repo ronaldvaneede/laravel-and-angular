@@ -15,9 +15,13 @@ function TodosController($scope, $http) {
 	}
 
 	$scope.addTodo = function() {
-		 $scope.todos.push({
+		 var todo = {
 		 	body: $scope.newTodoText,
 		 	completed: false
-		 });
+		 };
+
+		 $scope.todos.push(todo);
+
+		 $http.post('/todos', todo);
 	}
 }

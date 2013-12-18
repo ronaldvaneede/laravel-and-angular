@@ -20,3 +20,8 @@ Route::get('todos', function()
 {
 	return Todo::all();
 });
+
+Route::post('todos', function()
+{
+	return Todo::create(Input::all());
+});
