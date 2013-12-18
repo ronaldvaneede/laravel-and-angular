@@ -1,9 +1,8 @@
-function TodosController($scope) {
-	$scope.todos = [
-		{ body: 'Go to store', completed: true },
-		{ body: 'Finish video', completed: false },
-		{ body: 'Learn Angular', completed: false }
-	];
+function TodosController($scope, $http) {
+
+	$http.get('/todos').success(function(todos) {
+		$scope.todos = todos;
+	});
 
 	$scope.remaining = function() {
 		var count = 0;
